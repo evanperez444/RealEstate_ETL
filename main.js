@@ -34,7 +34,39 @@ async function fetchData() {
     try {
         const response = await fetch('http://localhost:5001/api/data');
         const data = await response.json();
-        console.log(data);
+        //console.log(data);
+
+        result_city = data.city.city
+        //console.log(result_city);
+
+        result_state = data.city.state_code
+        //console.log(result.city.state_code);
+
+        prop_array = data.city.geo_statistics.housing_market.by_prop_type;
+        
+        data_arr =[result_city, result_state]
+        
+        //console.log(data_arr)
+
+
+        property_record = {}
+
+        for (let i = 0; i < prop_array.length;i++)
+            {
+                
+                prop_attributes = prop_array[i].attributes
+                prop_type = prop_array[i].type
+                
+                //console.log(prop_array[i].attributes)
+                //console.log(prop_array[i].type)
+
+                property_record[String(data_arr)] = [prop_attributes, prop_type]
+            }
+        console.log(property_record)
+        
+        
+
+
     } catch (error) {
         console.error('Error fetching data:', error);
     }
