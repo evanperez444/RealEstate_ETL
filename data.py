@@ -15,4 +15,4 @@ headers = {
 response = requests.get(url, headers=headers, params=querystring)
 data = response.json()
 
-print(data)
+print(data.city)
