@@ -2,7 +2,7 @@ import requests
 import json
 import sys
 
-def fetch_market_trends(property_url):
+def fetch_realestate_data(property_url):
     url = "https://us-real-estate-listings.p.rapidapi.com/property/marketTrends"
     querystring = {"property_url": property_url}
     headers = {
@@ -20,4 +20,4 @@ def fetch_market_trends(property_url):
         return None  # Return None or handle the error as needed
 
 
-fetch_market_trends("https://www.realtor.com/realestateandhomes-detail/2433-S-Ramona-Cir_Tampa_FL_33612_M56257-22633")
+fetch_realestate_data("https://www.realtor.com/realestateandhomes-detail/2433-S-Ramona-Cir_Tampa_FL_33612_M56257-22633")
